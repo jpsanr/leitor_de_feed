@@ -27,16 +27,38 @@ $(function() {
         });
 
 
+
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
+        it('feeds com url definidos', function() {
+            const feeds = allFeeds.map(
+                    (feed) =>
+                    { 
+                        expect(feed.url).not.toBe("");
+                        expect(typeof feed.url).not.toBe("undefined");
+                    }
+                ) ;
+
+        });
 
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+         it('feeds com nome definidos', function() {
+            const feeds = allFeeds.map(
+                (feed) =>
+                { 
+                    expect(feed.name).not.toBe("");
+                    expect(typeof feed.name).not.toBe("undefined");
+                }
+                ) ;
+
+        });
+
     });
 
 
