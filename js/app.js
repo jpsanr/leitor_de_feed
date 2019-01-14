@@ -70,6 +70,7 @@ function init() {
                  });
 
                  if (cb) {
+                    console.log("oi");
                      cb();
                  }
                },

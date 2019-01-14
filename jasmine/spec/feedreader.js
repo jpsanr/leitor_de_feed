@@ -94,6 +94,7 @@ $(function() {
 
 
     });
+
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
         /* TODO: Write a test that ensures when the loadFeed
@@ -102,7 +103,23 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+
+        beforeEach(function(done)
+        {
+            loadFeed(0 , function(){
+                done();
+            });
+
+        });
+        
+         it('pelo menos um feed presente', function(done) {
+            entries = document.getElementsByClassName("entry");
+            expect(entries.length).toBeGreaterThanOrEqual(1);
+            done();
+        });
     });
+
+
 
     describe('New Feed Selection', function() {
     /* TODO: Write a new test suite named "New Feed Selection" */
