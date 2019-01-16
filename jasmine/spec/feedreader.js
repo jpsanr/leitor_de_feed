@@ -128,5 +128,24 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+        beforeEach(function(done)
+        {
+             loadFeed(0, function() {
+                todosFeedsPrimeiraPag = document.querySelector('.feed').innerHTML; //copia todos os feeds do feed id 0
+            });
+             loadFeed(1, function() {
+                    novosFeeds = document.querySelector('.feed').innerHTML;
+                    done();
+                  });
+        });
+
+        
+         it('Mudança de conteudo', function(done) {
+            
+            expect(novosFeeds).not.toBe(todosFeedsPrimeiraPag);
+            
+            done();
+        });
     });
 }());
